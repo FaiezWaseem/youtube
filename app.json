@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "youtube",
+    "slug": "snack-db798974-52b6-4c90-92e6-7d89fd66142e",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.youtube.adfree"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
