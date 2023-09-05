@@ -109,11 +109,15 @@ const ChipButton = ({ chip, onPress }) => {
         mt={10}
         rounded={8}
         m={5}
-        bg={chip.chipCloudChipRenderer.isSelected ? "#000" : "rgba(0,0,0,0.3)"}
+        bg={chip.chipCloudChipRenderer.isSelected ? "#fff" : "rgba(0,0,0,0.3)"}
         p={6}
         mb={10}
       >
-        <Text color={"white"}>
+        <Text
+          color={
+            !chip.chipCloudChipRenderer.isSelected ? "#fff" : "rgba(0,0,0,0.8)"
+          }
+        >
           {chip.chipCloudChipRenderer.text.runs[0].text}
         </Text>
       </Box>
