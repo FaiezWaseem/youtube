@@ -12,7 +12,8 @@ export default ({ channelId, channelName, navigation }) => {
     yt_api
       .getChannelLive(channelId)
       .then((res) => {
-        let temp = res?.data;
+        let temp = res?.data?.videos;
+        console.log(temp)
         setChannelvideos(temp);
         setLoading(false);
       })

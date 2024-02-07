@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { Icon } from "react-native-elements";
-import data from "../../lib";
+import { Box } from "rn-faiez-components";
 export default function VideoItemCard({ video, navigate }) {
   return (
-    <View style={{ paddingTop: 10, backgroundColor: "#1f1f1f" }}>
+    <Box bg={ "#1f1f1f" } rounded={4} m={8}>
       <TouchableOpacity
         onPress={() => {
           navigate.push("Video", {
@@ -13,7 +13,7 @@ export default function VideoItemCard({ video, navigate }) {
         }}
       >
         <Image
-          style={{ width: "100%", height: 200, resizeMode: "cover" }}
+          style={{ width: "100%", height: 200, resizeMode: "cover", borderRadius : 8 , margin : 4 }}
           source={{
             uri: video?.thumbnails?.[0]?.url,
           }}
@@ -65,6 +65,6 @@ export default function VideoItemCard({ video, navigate }) {
           </View>
         </View>
       </TouchableOpacity>
-    </View>
+    </Box>
   );
 }

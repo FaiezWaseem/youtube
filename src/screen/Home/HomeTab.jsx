@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { View, ScrollView, TouchableOpacity } from "react-native";
+import { View, ScrollView, TouchableOpacity, ActivityIndicator } from "react-native";
 import VideoItemCard from "../../components/home/VideoItemCard";
 import StoryCard from "../../components/home/StoryCard";
 import YtApi from "../../networkClient/yt_api";
-import { Loader, Box, Text } from "rn-faiez-components";
+import { Box, Text } from "rn-faiez-components";
+import VideoPlaceHolder from '../../components/home/VideoItemPlaceHolder'
 export default function HomeTab({ extraData }) {
   const [homeVideos, setHomeVideos] = useState([]);
   const [homeShorts, setHomeShorts] = useState([]);
@@ -12,6 +13,7 @@ export default function HomeTab({ extraData }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     try {
+
       YtApi.getRecommendedVideos()
         .then((res) => {
           setLoading(false);
@@ -22,7 +24,7 @@ export default function HomeTab({ extraData }) {
             setNextToken(res.data?.nextToken);
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => alert(err));
     } catch (error) {
       alert(error);
     }
@@ -30,7 +32,6 @@ export default function HomeTab({ extraData }) {
 
   return (
     <Box flex bg={"#323232"}>
-      <Loader isVisible={loading} />
       <ScrollView
         onScroll={({ nativeEvent }) => {
           try {
@@ -89,8 +90,12 @@ export default function HomeTab({ extraData }) {
             return <VideoItemCard video={video} navigate={extraData} key={i} />;
           }
         })}
-        <View style={{ height: 20 }}></View>
+          {loading && [1,2,3,4].map(i => <VideoPlaceHolder />)}
+        <View style={{ height: 40 }}>
+          {loading && <ActivityIndicator size={28} color={"white"} />}
+        </View>
       </ScrollView>
+
     </Box>
   );
 }

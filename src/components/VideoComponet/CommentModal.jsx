@@ -16,7 +16,6 @@ import { EvilIcons } from "@expo/vector-icons";
 import Hyperlink from "react-native-hyperlink";
 import * as Linking from "expo-linking";
 import YtApi from "../../networkClient/yt_api";
-import { Loader } from "rn-faiez-components";
 export default function CommentModal({
   commentToken,
   isCustomView,
@@ -129,7 +128,6 @@ export default function CommentModal({
               }}
             />
           </View>
-          <Loader isVisible={isVisible} />
           <FlatList
             data={homeVideos}
             renderItem={({ item }) => (
@@ -137,12 +135,14 @@ export default function CommentModal({
             )}
             onEndReached={({ distanceFromEnd }) => {
               if (distanceFromEnd < 0) return;
-              if (nextToken) {
+              if (nextToken && !isVisible) {
                 loadNext(nextToken);
               }
             }}
             keyExtractor={(item, i) => i.toString()}
+        
           />
+          {isVisible && <ActivityIndicator color={'white'} size={22} />}
         </SafeAreaView>
       </Modal>
     </View>

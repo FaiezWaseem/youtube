@@ -1,25 +1,12 @@
 import { useEffect, useState } from "react";
-import { View, ScrollView } from "react-native";
-import VideoItemCard from "../../components/home/VideoItemCard";
-import YtApi from "../../networkClient/yt_api";
+
+import { Center , Text} from "rn-faiez-components";
 
 export default function TrendTab({ extraData }) {
-  const [homeVideos, setHomeVideos] = useState([]);
-  useEffect(() => {
-    YtApi.getRecommendedVideos()
-      .then((res) => {
-        if (res.status == 200) {
-          setHomeVideos(res.data.videos);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
+
   return (
-    <ScrollView>
-      {homeVideos.map((video, i) => (
-        <VideoItemCard video={video} navigate={extraData} key={i} />
-      ))}
-      <View style={{ height: 20 }}></View>
-    </ScrollView>
+    <Center style={{ flex: 1 }} bg={'#323232'}>
+      <Text color={'white'} fontWeight={'bold'}  fontSize={26}>Empty view</Text>
+    </Center>
   );
 }

@@ -13,6 +13,7 @@ export default () => {
         p={4}
         m={8}
         e={3}
+        rounded={8}
         bg={'#3b3b3b'}
         alignItems={'center'}
         justifyContent={'space-between'}>
@@ -23,8 +24,11 @@ export default () => {
         />
         <Button
           btnOutline
+          color={'white'}
+          btnOutlineColor={'white'}
           style={{
             padding: 6,
+            borderRadius : 6
           }}
           onPress={() => {
             

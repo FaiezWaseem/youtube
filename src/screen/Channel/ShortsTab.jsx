@@ -10,11 +10,11 @@ export default ({ channelId, channelName, navigation }) => {
     yt_api
       .getChannelShorts(channelId)
       .then((res) => {
-        let temp = res?.data;
+        let temp = res?.data?.videos;
         temp.pop();
         setChannelShort(temp);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err));
   }, []);
   return (
     <Tabs.FlashList

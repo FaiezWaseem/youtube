@@ -29,8 +29,9 @@ export default ({ navigation }) => {
   };
   const loadVideo = () => {
     YtApi.search_query(
-      encodeURIComponent(input.replace(/\s+/g, "+").toLowerCase())
+      encodeURIComponent(input)
     ).then((res) => {
+      console.log(res , encodeURIComponent(input))
       setLoading(false);
       SaveSearches(input);
       if (res?.status == 200) {

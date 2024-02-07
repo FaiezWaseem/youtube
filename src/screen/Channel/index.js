@@ -7,6 +7,7 @@ import VideosTab from "./VideosTab";
 import PlayListTab from "./PlayListTab";
 import ShortsTab from "./ShortsTab";
 import LiveTab from "./LiveTab";
+import AboutTab from "./AboutTab";
 
 const tabBar = (props) => (
   <MaterialTabBar
@@ -69,6 +70,9 @@ const ChannelScreen = ({ navigation, route }) => {
         </Tabs.Tab>
         <Tabs.Tab name="PlayList">
           <PlayListTab navigation={navigation} channelId={channelId} />
+        </Tabs.Tab>
+        <Tabs.Tab name="About">
+          <AboutTab navigation={navigation} channelId={channelId} />
         </Tabs.Tab>
       </Tabs.Container>
       <View style={styles.listFooter} />

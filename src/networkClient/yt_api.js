@@ -7,7 +7,8 @@ class YtApi {
   alternate_key = "AIzaSyB36f-MWnKPaoErphyLywlwFPGHFKqn6MU";
   root_url = "https://www.googleapis.com/youtube/v3/";
 
-  myserver = "https://api.faiezwaseem.com/yt/";
+
+  myserver = "http://192.210.174.131/yt/";
 
   constructor() {
     // this.init();

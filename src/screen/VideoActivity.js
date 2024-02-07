@@ -7,6 +7,8 @@ import CommentModal from "../components/VideoComponet/CommentModal";
 import Recomendation from "../components/VideoComponet/Recomendation";
 import lib from "../lib";
 import YtApi from "../networkClient/yt_api";
+import VideoPlaceHolder from '../components/home/VideoItemPlaceHolder'
+
 export default function VideoActivity({ route, navigation }) {
   const { type, video } = route.params;
   const [homeVideos, setHomeVideos] = React.useState([]);
@@ -69,11 +71,12 @@ export default function VideoActivity({ route, navigation }) {
           }}
         />
         {commentToken && (
-          <CommentModal isLogin={isLogin} commentToken={commentToken} />
+          <CommentModal isLogin={isLogin} commentToken={commentToken} navigation={navigation} />
         )}
         {homeVideos?.map((item, i) => (
           <Recomendation video={item} navigate={navigation} key={i} />
         ))}
+        {homeVideos.length == 0 && [1,1,1,1].map(i => <VideoPlaceHolder />) }
       </ScrollView>
     </View>
   );

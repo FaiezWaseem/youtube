@@ -44,11 +44,7 @@ const Header = ({ channelFollowers, channelId, channelName }) => {
       </View>
       <Pressable
         style={styles.channelDescription}
-        onPress={() =>
-          navigation?.navigate("ChannelScreen", {
-            screen: "PlayList",
-          })
-        }
+       
       >
         <Text numberOfLines={2} style={styles?.description}>
           {channelInfo?.description}
